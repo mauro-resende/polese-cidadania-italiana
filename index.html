@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polese Cidadania Italiana | Seu Passaporte para a Europa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #007140;
+    --branco: #f9f5ef;
+    --vermelho: #c8102e;
+    --ouro: #b8972a;
+    --ouro-claro: #d4af50;
+    --escuro: #0e0e0e;
+    --cinza: #4a4a4a;
+    --cinza-claro: #f0ece4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--branco);
+    color: var(--escuro);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--escuro);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(0,113,64,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 100% at 50% 50%, rgba(184,151,42,0.06) 0%, transparent 70%);
+  }
+
+  /* Strisce italiane verticais decorativas */
+  .hero-stripes {
+    position: absolute;
+    top: 0; right: 0;
+    width: 6px;
+    height: 100%;
+    display: flex;
+    gap: 3px;
+  }
+  .stripe { flex: 1; opacity: 0.6; }
+  .stripe-g { background: var(--verde); }
+  .stripe-w { background: #fff; opacity: 0.3; }
+  .stripe-r { background: var(--vermelho); }
+
+  nav {
+    position: relative;
+    z-index: 10;
+    padding: 28px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+  .logo span { color: var(--ouro-claro); font-style: italic; }
+
+  .nav-cta {
+    background: var(--verde);
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #005c34; }
+
+  .hero-content {
+    position: relative;
+    z-index: 5;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 60px 80px;
+    max-width: 900px;
+  }
+
+  .hero-text { animation: fadeUp 1s 0.3s ease both; }
+
+  .hero-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ouro-claro);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--ouro-claro);
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 28px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--ouro-claro);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 44px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--verde);
+    color: #fff;
+    padding: 16px 36px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary:hover { background: #005c34; }
+
+  .btn-secondary {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: #fff; }
+  .btn-secondary::before {
+    content: '↓';
+    font-size: 1rem;
+  }
+
+  .hero-scroll-line {
+    position: absolute;
+    bottom: 0;
+    left: 60px;
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--ouro-claro));
+    animation: fadeUp 1s 1.2s ease both;
+  }
+
+  /* ── STATS ── */
+  .stats {
+    background: var(--verde);
+    padding: 48px 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    animation: fadeUp 0.8s ease both;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-num span { color: var(--ouro-claro); }
+  .stat-label {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 60px; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--verde);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--escuro);
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--verde); }
+
+  /* ── POR QUE ITÁLIA ── */
+  .porque {
+    background: var(--branco);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .porque-visual {
+    position: relative;
+    height: 480px;
+  }
+
+  .porque-img-frame {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flag-decor {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 8px;
+    display: flex;
+  }
+  .flag-decor div { flex: 1; }
+  .flag-decor div:nth-child(1) { background: var(--verde); }
+  .flag-decor div:nth-child(2) { background: #fff; }
+  .flag-decor div:nth-child(3) { background: var(--vermelho); }
+
+  .colosseo-icon {
+    font-size: 8rem;
+    opacity: 0.15;
+    position: absolute;
+  }
+
+  .porque-quote {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    padding: 24px 28px;
+    border-left: 3px solid var(--ouro-claro);
+  }
+  .porque-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.5;
+  }
+  .porque-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: var(--ouro-claro);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  .porque-content .section-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--cinza);
+    margin-bottom: 40px;
+  }
+
+  .beneficios-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .beneficio-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: var(--cinza-claro);
+    border-left: 3px solid var(--verde);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .beneficio-item:hover {
+    border-color: var(--ouro);
+    transform: translateX(4px);
+  }
+  .beneficio-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .beneficio-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--escuro);
+    margin-bottom: 4px;
+  }
+  .beneficio-text span {
+    font-size: 0.85rem;
+    color: var(--cinza);
+    line-height: 1.5;
+  }
+
+  /* ── PROCESSO ── */
+  .processo {
+    background: var(--escuro);
+    color: #fff;
+  }
+  .processo .section-eyebrow { color: var(--ouro-claro); }
+  .processo .section-eyebrow::before { background: var(--ouro-claro); }
+  .processo .section-title { color: #fff; }
+  .processo .section-title em { color: var(--ouro-claro); }
+
+  .processo-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 64px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height: 1px;
+    background: linear-gradient(to right, var(--verde), var(--ouro-claro), var(--verde));
+  }
+
+  .step {
+    padding: 0 24px;
+    text-align: center;
+  }
+  .step-num {
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--ouro-claro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--ouro-claro);
+    margin: 0 auto 24px;
+    background: var(--escuro);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+  }
+  .step:hover .step-num {
+    background: var(--verde);
+    border-color: var(--verde);
+    color: #fff;
+  }
+  .step-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .step-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  /* ── ELEGIBILIDADE ── */
+  .elegibilidade {
+    background: var(--cinza-claro);
+  }
+
+  .eleg-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 56px;
+  }
+
+  .eleg-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--cinza);
+    margin-bottom: 32px;
+  }
+
+  .eleg-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .eleg-card {
+    background: #fff;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .eleg-card:hover {
+    border-color: var(--verde);
+    box-shadow: 0 4px 20px rgba(0,113,64,0.08);
+  }
+  .eleg-card-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--verde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .eleg-card-text strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .eleg-card-text span {
+    font-size: 0.8rem;
+    color: var(--cinza);
+  }
+
+  .alert-box {
+    background: var(--escuro);
+    color: #fff;
+    padding: 28px 32px;
+    border-left: 4px solid var(--ouro-claro);
+    margin-top: 32px;
+  }
+  .alert-box p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+  }
+  .alert-box strong { color: var(--ouro-claro); }
+
+  /* ── DEPOIMENTOS ── */
+  .depoimentos {
+    background: var(--branco);
+  }
+
+  .dep-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .dep-card {
+    background: var(--cinza-claro);
+    padding: 36px 32px;
+    position: relative;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .dep-card:hover {
+    border-color: var(--verde);
+    transform: translateY(-4px);
+  }
+  .dep-card::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--verde);
+    opacity: 0.2;
+    position: absolute;
+    top: 8px;
+    left: 24px;
+    line-height: 1;
+  }
+  .dep-text {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--cinza);
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .dep-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .dep-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--verde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .dep-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--escuro);
+  }
+  .dep-local {
+    font-size: 0.78rem;
+    color: var(--cinza);
+    margin-top: 2px;
+  }
+  .dep-stars { color: var(--ouro); font-size: 0.85rem; margin-bottom: 4px; }
+
+  /* ── CTA FINAL ── */
+  .cta-final {
+    background: var(--verde);
+    text-align: center;
+    padding: 100px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-final::before {
+    content: 'ITALIA';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .cta-final .section-eyebrow {
+    color: var(--ouro-claro);
+    justify-content: center;
+  }
+  .cta-final .section-eyebrow::before { background: var(--ouro-claro); }
+
+  .cta-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .cta-headline em { font-style: italic; color: var(--ouro-claro); }
+
+  .cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 500px;
+    margin: 0 auto 44px;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .cta-form {
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+  .cta-input {
+    flex: 1;
+    padding: 16px 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    backdrop-filter: blur(10px);
+  }
+  .cta-input::placeholder { color: rgba(255,255,255,0.45); }
+  .cta-btn {
+    background: var(--escuro);
+    color: #fff;
+    border: none;
+    padding: 16px 28px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .cta-btn:hover { background: #1a1a1a; }
+
+  .cta-wpp {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: color 0.2s;
+  }
+  .cta-wpp:hover { color: #fff; }
+  .wpp-icon {
+    width: 20px;
+    height: 20px;
+    background: #25d366;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--escuro);
+    padding: 48px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #fff;
+  }
+  .footer-logo span { color: var(--ouro-claro); font-style: italic; }
+  .footer-info {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    text-align: right;
+    line-height: 1.8;
+  }
+  .footer-flag {
+    display: flex;
+    gap: 3px;
+    height: 20px;
+  }
+  .footer-flag div { width: 12px; }
+  .footer-flag div:nth-child(1) { background: var(--verde); }
+  .footer-flag div:nth-child(2) { background: #fff; }
+  .footer-flag div:nth-child(3) { background: var(--vermelho); }
+
+  /* ── ANIMAÇÕES ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav, section, .stats, footer { padding-left: 24px; padding-right: 24px; }
+    .hero-content { padding: 0 24px 80px; }
+    .hero-scroll-line { left: 24px; }
+
+    .stats { grid-template-columns: 1fr; gap: 32px; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 32px; }
+    .stat-item:last-child { border-bottom: none; }
+
+    .porque { grid-template-columns: 1fr; gap: 40px; }
+    .porque-visual { height: 280px; }
+
+    .steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .steps::before { display: none; }
+
+    .eleg-grid { grid-template-columns: 1fr; gap: 40px; }
+    .dep-grid { grid-template-columns: 1fr; }
+
+    .cta-form { flex-direction: column; }
+    .cta-btn { padding: 16px; }
+
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-info { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stripes">
+    <div class="stripe stripe-g"></div>
+    <div class="stripe stripe-w"></div>
+    <div class="stripe stripe-r"></div>
+  </div>
+
+  <nav>
+    <div class="logo">Polese <span>Cidadania Italiana</span></div>
+    <a href="#contato" class="nav-cta">Consulta Gratuita</a>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Especialistas em Cidadania Italiana por Descendência</p>
+      <h1 class="hero-headline">
+        Seu sangue italiano<br>
+        te dá direito a um<br>
+        <em>passaporte europeu.</em>
+      </h1>
+      <p class="hero-sub">
+        Reconhecemos sua cidadania italiana por descendência com segurança jurídica, acompanhamento completo e sem você precisar entender de burocracia.
+      </p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn-primary">Quero meu passaporte italiano</a>
+        <a href="#processo" class="btn-secondary">Como funciona</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-line"></div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-num">+200<span>k</span></div>
+    <div class="stat-label">Brasileiros com direito à cidadania</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">1<span>ª</span></div>
+    <div class="stat-label">Consulta totalmente gratuita</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100<span>%</span></div>
+    <div class="stat-label">Processo acompanhado do início ao fim</div>
+  </div>
+</div>
+
+<!-- ── POR QUE ITÁLIA ── -->
+<section class="porque">
+  <div class="porque-visual">
+    <div class="porque-img-frame">
+      <div class="flag-decor">
+        <div></div><div></div><div></div>
+      </div>
+      <div class="colosseo-icon">🏛️</div>
+      <div class="porque-quote">
+        <p>"Ter a cidadania italiana abriu portas que eu nem sabia que existiam."</p>
+        <cite>— Cliente Polese, 2024</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="porque-content">
+    <p class="section-eyebrow">Por que buscar sua cidadania</p>
+    <h2 class="section-title">A Europa inteira ao<br>alcance da sua <em>família</em></h2>
+    <p class="section-desc">
+      A cidadania italiana não é só um passaporte. É o direito de viver, trabalhar e estudar em qualquer um dos 27 países da União Europeia — e de passar esse direito para seus filhos e netos.
+    </p>
+    <ul class="beneficios-list">
+      <li class="beneficio-item">
+        <span class="beneficio-icon">🌍</span>
+        <div class="beneficio-text">
+          <strong>Livre circulação pela Europa</strong>
+          <span>Viva, trabalhe ou estude em qualquer país da União Europeia sem visto.</span>
+        </div>
+      </li>
+      <li class="beneficio-item">
+        <span class="beneficio-icon">🎓</span>
+        <div class="beneficio-text">
+          <strong>Educação europeia para seus filhos</strong>
+          <span>Acesso a universidades de alto nível com mensalidades drasticamente menores.</span>
+        </div>
+      </li>
+      <li class="beneficio-item">
+        <span class="beneficio-icon">🏥</span>
+        <div class="beneficio-text">
+          <strong>Saúde pública de qualidade</strong>
+          <span>Atendimento pelo sistema de saúde italiano e europeu como cidadão de pleno direito.</span>
+        </div>
+      </li>
+      <li class="beneficio-item">
+        <span class="beneficio-icon">♾️</span>
+        <div class="beneficio-text">
+          <strong>Direito hereditário</strong>
+          <span>A cidadania se transmite automaticamente para filhos e gerações futuras.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── PROCESSO ── -->
+<section class="processo" id="processo">
+  <p class="section-eyebrow">Como trabalhamos</p>
+  <h2 class="section-title">Processo <em>transparente</em><br>do início ao passaporte</h2>
+  <p class="processo-subtitle">
+    Cuidamos de toda a burocracia para que você não precise entender de documentos italianos, prazos consulares ou leis de descendência.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Consulta Gratuita</div>
+      <div class="step-desc">Analisamos sua árvore genealógica e confirmamos se você tem direito à cidadania.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Levantamento Documental</div>
+      <div class="step-desc">Orientamos e auxiliamos na coleta de todos os documentos necessários no Brasil e na Itália.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Protocolo do Processo</div>
+      <div class="step-desc">Protocolo do pedido via consulado ou via judicial, com acompanhamento integral.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-title">Passaporte em Mãos</div>
+      <div class="step-desc">Seu documento europeu emitido. Suporte contínuo para toda a sua família.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ELEGIBILIDADE ── -->
+<section class="elegibilidade">
+  <p class="section-eyebrow">Você tem direito?</p>
+  <h2 class="section-title">Descubra se você pode<br>ser cidadão <em>italiano</em></h2>
+
+  <div class="eleg-grid">
+    <div>
+      <p class="eleg-desc">
+        O Brasil tem uma das maiores comunidades de descendentes italianos do mundo. Se você tem um bisavô, trisavô ou antepassado italiano, é muito provável que você já tenha direito à cidadania — e ainda não saiba.
+      </p>
+      <p class="eleg-desc">
+        A lei italiana permite o reconhecimento da cidadania por descendência sem limite de gerações, desde que sejam cumpridos alguns requisitos específicos que avaliamos gratuitamente para você.
+      </p>
+
+      <div class="eleg-cards">
+        <div class="eleg-card">
+          <div class="eleg-card-icon">🧬</div>
+          <div class="eleg-card-text">
+            <strong>Descendente de italiano (qualquer geração)</strong>
+            <span>Pai, avô, bisavô, trisavô — sem limite geracional na maioria dos casos.</span>
+          </div>
+        </div>
+        <div class="eleg-card">
+          <div class="eleg-card-icon">📄</div>
+          <div class="eleg-card-text">
+            <strong>Possui ou consegue obter documentos do antepassado</strong>
+            <span>Certidão de nascimento, casamento ou naturalização do seu familiar italiano.</span>
+          </div>
+        </div>
+        <div class="eleg-card">
+          <div class="eleg-card-icon">🇧🇷</div>
+          <div class="eleg-card-text">
+            <strong>Não naturalizou brasileiro em nenhuma geração</strong>
+            <span>Exceto após 1948 — esse critério é avaliado caso a caso.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="alert-box">
+        <p>
+          <strong>Não sabe se tem direito?</strong><br><br>
+          É exatamente para isso que existe nossa consulta gratuita. Em menos de 30 minutos analisamos sua situação e te dizemos com clareza se o processo é viável — sem compromisso.
+        </p>
+      </div>
+      <br>
+      <a href="#contato" class="btn-primary" style="display:block;text-align:center;padding:18px;">Verificar minha elegibilidade gratuitamente</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPOIMENTOS ── -->
+<section class="depoimentos">
+  <p class="section-eyebrow">Quem já realizou o sonho</p>
+  <h2 class="section-title">Histórias reais de<br>cidadãos <em>italianos</em></h2>
+
+  <div class="dep-grid">
+    <div class="dep-card">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">
+        Minha família tentou por conta própria durante anos e não conseguia avançar. Com a Polese, em menos de um ano meu processo foi protocolado. Hoje tenho meu passaporte europeu.
+      </p>
+      <div class="dep-author">
+        <div class="dep-avatar">M</div>
+        <div>
+          <div class="dep-name">Marcos Andrade</div>
+          <div class="dep-local">São Paulo, SP</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">
+        Indicaram a Polese por ser especialista. Atendimento excelente, explicaram tudo com clareza e cuidaram de cada documento. Minha filha já nasceu com dupla cidadania.
+      </p>
+      <div class="dep-author">
+        <div class="dep-avatar">C</div>
+        <div>
+          <div class="dep-name">Carla Mendes</div>
+          <div class="dep-local">Curitiba, PR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">
+        Não sabia nem por onde começar. A consulta gratuita foi decisiva — ficou claro que eu tinha direito e qual seria o caminho. Processo tranquilo e resultado garantido.
+      </p>
+      <div class="dep-author">
+        <div class="dep-avatar">R</div>
+        <div>
+          <div class="dep-name">Ricardo Fonseca</div>
+          <div class="dep-local">Vila Velha, ES</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="cta-final" id="contato">
+  <p class="section-eyebrow" style="justify-content:center;">Dê o primeiro passo hoje</p>
+  <h2 class="cta-headline">
+    Sua cidadania italiana<br>começa com uma<br><em>conversa gratuita.</em>
+  </h2>
+  <p class="cta-sub">
+    Deixe seu WhatsApp e entraremos em contato em até 24 horas para uma análise gratuita da sua elegibilidade.
+  </p>
+
+  <div class="cta-form">
+    <input class="cta-input" type="tel" placeholder="Seu WhatsApp com DDD" />
+    <button class="cta-btn" onclick="handleSubmit()">Quero minha consulta →</button>
+  </div>
+
+  <br>
+  <a href="https://wa.me/5527999999999" class="cta-wpp" target="_blank">
+    <span class="wpp-icon">W</span>
+    Ou fale agora pelo WhatsApp
+  </a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Polese <span>Cidadania Italiana</span></div>
+  <div class="footer-flag">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="footer-info">
+    Vila Velha, ES — Atendimento em todo o Brasil<br>
+    CNPJ 52.486.432/0001-58 · Renato Polesi Rocha<br>
+    © 2025 Polese Cidadania Italiana
+  </div>
+</footer>
+
+<script>
+  // Animação de entrada ao scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.step, .beneficio-item, .dep-card, .eleg-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  function handleSubmit() {
+    const input = document.querySelector('.cta-input');
+    const num = input.value.replace(/\D/g, '');
+    if (num.length < 10) {
+      input.style.border = '2px solid #c8102e';
+      input.placeholder = 'Digite um número válido';
+      return;
+    }
+    const msg = encodeURIComponent('Olá! Gostaria de saber mais sobre o processo de cidadania italiana.');
+    window.open(`https://wa.me/5527999999999?text=${msg}`, '_blank');
+  }
+</script>
+
+</body>
+</html>
